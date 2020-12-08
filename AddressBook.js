@@ -44,4 +44,9 @@ class Contact {
     set email(email) {
         this._email = email;
     }
+    //To string method for displaying contacts
+    toString() {
+        return "First Name: " + this.firstName + " Last Name: " + this.lastName + " Address: " + this.address + " City: " + this.city
+            + " State: " + this.state + " Zipcode: " + this.zip + " Phone Number: " + this.phoneNumber + " Email: " + this.email;
+    }
 }
