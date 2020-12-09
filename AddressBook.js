@@ -110,7 +110,16 @@ function DeleteContact(firstName, mobileNumber) {
 // UC6 Gets Count of Contact in Address Book.
 function CountContact() {
     let addressBookCount = AddressBook.reduce((count) => count = count + 1, 0);
-    console.log("Contact Count is: " + addressBookCount);
+    console.log("Contact Count in AddressBook is: " + addressBookCount);
+}
+// UC8 Search by city and state
+function SearchByCity(city) {
+    let sortByCity = AddressBook.filter(contact => contact.city == city);
+    return sortByCity;
+}
+function SearchByState(state) {
+    let sortByState = AddressBook.filter(contact => contact.state == state);
+    return sortByState;
 }
 function Main() {
     console.log("Welcome to address book");
@@ -126,6 +135,11 @@ function Main() {
     // UC5 Deletes the contact from AddressBook Array.
     DeleteContact("Chetan", "7896543254");
     AddressBook.forEach(contact => console.log(contact.toString()));
+    // UC8 Prints Contact by city.
+    console.log(SearchByCity("Mumbai"));
+    // UC8 Prints Contact by state.
+    console.log(SearchByState("Delhi"));
+    
 }
 Main();
 CountContact();
