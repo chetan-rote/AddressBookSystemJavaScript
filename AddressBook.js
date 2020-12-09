@@ -93,9 +93,20 @@ function AddContact(firstName, lastName, address, city, state, zip, phoneNumber,
         console.error(e);
     }
 }
+// UC5 Delete Contact
+function DeleteContact(firstName, mobileNumber)
+{
+    for(let index = 0; index < AddressBook.length; index++)
+    {
+        if(AddressBook[index].firstName == firstName && AddressBook[index].phoneNumber == mobileNumber)
+        {
+            AddressBook.splice(index, 1 );
+        }
+    }
+}
 function Main() {
     console.log("Welcome to address book");
-    //Adds new contact.
+    // UC3 Adds new contact in AddressBook Array.
     AddContact("Chetan", "Rote", "Ghatkopar", "Mumbai", "Maharashtra", "400084", "7896543254","chetan@gmail.com");
     AddContact("Gauravi", "Sharma", "Malad", "Mumbai", "Maharashtra", "400028", "9856201452","gauravi@gmail.com");
     AddContact("Rohit", "Mehta", "Vasantkunj", "Delhi", "Delhi", "110023", "7452654852","rohit@gmail.com");
@@ -103,6 +114,9 @@ function Main() {
     AddressBook.forEach(contact=>console.log(contact.toString()));
     // UC4 Edit Contact by name.
     AddressBook.filter(contact => contact.firstName == "Chetan" && contact.phoneNumber == "7896543254").forEach(contact =>{ contact.address = "Kisan"; contact.city = "Banagalore"; contact.state = "Karnataka"})
+    AddressBook.forEach(contact=>console.log(contact.toString()));
+    // UC5 Deletes the contact from AddressBook Array.
+    DeleteContact("Chetan", "7896543254");
     AddressBook.forEach(contact=>console.log(contact.toString()));
 }
 Main();
